@@ -417,6 +417,7 @@ button {
 }
 
 .onboarding-card input,
+.ask-row input,
 .testimony-panel textarea {
   width: 100%;
   border-radius: 18px;
@@ -505,6 +506,22 @@ button {
   margin-top: 18px;
 }
 
+.feed-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.feed-sidebar,
+.neighborhood-panel,
+.neighborhood-events,
+.zip-search,
+.neighborhood-summary {
+  display: grid;
+  gap: 12px;
+}
+
 .alert-card {
   border-radius: 22px;
   padding: 16px 18px;
@@ -541,6 +558,78 @@ button {
   background: rgba(255, 249, 242, 0.84);
   color: var(--muted);
   white-space: nowrap;
+}
+
+.zip-search {
+  grid-template-columns: 1fr auto;
+}
+
+.zip-search input {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 244, 0.9);
+  color: var(--text);
+  padding: 14px 16px;
+  outline: none;
+}
+
+.nyc-map-card {
+  border-radius: 24px;
+  border: 1px solid var(--line-soft);
+  background: linear-gradient(180deg, rgba(252, 247, 241, 0.94), rgba(240, 228, 212, 0.95));
+  padding: 12px;
+}
+
+.nyc-map {
+  width: 100%;
+  height: auto;
+}
+
+.nyc-map path {
+  fill: #7d8f95;
+  stroke: rgba(255, 251, 245, 0.95);
+  stroke-width: 3;
+  cursor: pointer;
+  transition: fill 140ms ease, transform 140ms ease;
+  transform-origin: center;
+}
+
+.nyc-map path:hover,
+.nyc-map path.active {
+  fill: #9b5536;
+  transform: scale(1.02);
+}
+
+.nyc-map text {
+  fill: #fffaf2;
+  font-size: 10px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.neighborhood-chip-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.neighborhood-summary {
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255, 248, 240, 0.78);
+}
+
+.neighborhood-summary strong {
+  color: var(--walnut-deep);
+}
+
+.neighborhood-summary span {
+  color: var(--muted);
+}
+
+.neighborhood-event-row {
+  grid-template-columns: auto 1fr;
 }
 
 .bill-card {
@@ -800,9 +889,265 @@ button {
   border-radius: 999px;
 }
 
+.events-view,
+.events-panel,
+.event-list {
+  display: grid;
+  gap: 16px;
+}
+
+.event-day {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.event-day:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.event-day-label {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.55rem;
+  color: var(--walnut-deep);
+}
+
+.event-card {
+  display: grid;
+  grid-template-columns: 6px 92px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 16px;
+  border-radius: 22px;
+  border: 1px solid var(--line-soft);
+  background: rgba(255, 248, 240, 0.84);
+}
+
+.event-accent {
+  display: block;
+  width: 6px;
+  min-height: 100%;
+  border-radius: 999px;
+}
+
+.event-time {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--walnut);
+  text-transform: uppercase;
+}
+
+.event-copy {
+  display: grid;
+  gap: 8px;
+}
+
+.event-copy h3,
+.event-copy p {
+  margin: 0;
+}
+
+.event-copy p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.event-type {
+  background: rgba(159, 114, 79, 0.12);
+  color: var(--walnut-deep);
+}
+
 .testimony-panel {
   display: grid;
   gap: 16px;
+}
+
+.briefing-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.briefing-left,
+.briefing-right {
+  display: grid;
+  gap: 16px;
+}
+
+.briefing-right {
+  padding-left: 18px;
+  border-left: 1px solid var(--line-soft);
+}
+
+.briefing-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.language-control {
+  display: grid;
+  gap: 6px;
+  min-width: 180px;
+}
+
+.language-control span {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.language-control select {
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 244, 0.9);
+  color: var(--text);
+  padding: 10px 12px;
+}
+
+.brief-section {
+  display: grid;
+  gap: 12px;
+}
+
+.bill-hero-card,
+.plain-summary-card,
+.community-testimony,
+.resource-card {
+  border: 1px solid var(--line-soft);
+  border-radius: 20px;
+  padding: 16px;
+  background: rgba(255, 248, 240, 0.82);
+}
+
+.bill-hero-top,
+.status-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bill-hero-card h4,
+.plain-summary-card p,
+.plain-summary-card strong,
+.community-testimony p {
+  margin: 0;
+}
+
+.bill-hero-card h4 {
+  margin-top: 4px;
+}
+
+.language-pill-row,
+.status-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.plain-summary-card {
+  gap: 12px;
+  display: grid;
+}
+
+.plain-summary-card strong {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.35rem;
+  color: var(--walnut-deep);
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.testimony-count {
+  font-weight: 700;
+  color: var(--walnut-deep);
+}
+
+.jargon-row {
+  display: grid;
+  gap: 6px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.jargon-row:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.resource-card {
+  display: grid;
+  gap: 4px;
+}
+
+.brief-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.brief-card,
+.answer-card {
+  border: 1px solid var(--line-soft);
+  border-radius: 20px;
+  padding: 16px;
+  background: rgba(255, 248, 240, 0.8);
+}
+
+.brief-card span {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--walnut);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.brief-card p,
+.answer-card p {
+  margin: 0;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.prompt-row,
+.ask-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ask-row {
+  align-items: center;
+}
+
+.ask-row input {
+  flex: 1 1 320px;
+}
+
+.draft-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .hero-map,
@@ -838,8 +1183,21 @@ button {
   .hero,
   .content-grid,
   .two-column,
-  .stats-grid {
+  .stats-grid,
+  .feed-layout,
+  .brief-grid,
+  .briefing-layout,
+  .draft-actions,
+  .event-day,
+  .impact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .briefing-right {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--line-soft);
+    padding-top: 16px;
   }
 
   .cta-panel,
