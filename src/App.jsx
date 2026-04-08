@@ -169,9 +169,9 @@ const REP = {
 };
 
 const STATUS_COLORS = {
-  LIVE: { bg: "rgba(255, 90, 90, 0.14)", text: "#ff7e72", dot: "#ff5a5a" },
-  UPCOMING: { bg: "rgba(248, 168, 46, 0.14)", text: "#f8a82e", dot: "#f8a82e" },
-  PASSED: { bg: "rgba(32, 185, 129, 0.14)", text: "#20b981", dot: "#20b981" },
+  LIVE: { bg: "rgba(155, 85, 54, 0.12)", text: "#9b5536", dot: "#9b5536" },
+  UPCOMING: { bg: "rgba(184, 140, 74, 0.16)", text: "#b88c4a", dot: "#b88c4a" },
+  PASSED: { bg: "rgba(95, 126, 93, 0.14)", text: "#5f7e5d", dot: "#5f7e5d" },
 };
 
 const PIN_COORDS = {
@@ -248,7 +248,7 @@ function Landing({ onEnter }) {
       return node;
     };
 
-    svg.appendChild(make("rect", { width, height, fill: "#09111f" }));
+    svg.appendChild(make("rect", { width, height, fill: "#efe4d2" }));
 
     for (let x = 0; x < width; x += 28) {
       svg.appendChild(
@@ -257,7 +257,7 @@ function Landing({ onEnter }) {
           y1: 0,
           x2: x,
           y2: height,
-          stroke: "rgba(93, 146, 255, 0.07)",
+          stroke: "rgba(120, 94, 66, 0.08)",
           "stroke-width": "0.5",
         }),
       );
@@ -270,7 +270,7 @@ function Landing({ onEnter }) {
           y1: y,
           x2: width,
           y2: y,
-          stroke: "rgba(93, 146, 255, 0.07)",
+          stroke: "rgba(120, 94, 66, 0.08)",
           "stroke-width": "0.5",
         }),
       );
@@ -290,7 +290,7 @@ function Landing({ onEnter }) {
           y1: y1 * height,
           x2: x2 * width,
           y2: y2 * height,
-          stroke: "rgba(255,255,255,0.06)",
+          stroke: "rgba(88, 60, 39, 0.18)",
           "stroke-width": "6",
         }),
       );
@@ -300,28 +300,28 @@ function Landing({ onEnter }) {
           y1: y1 * height,
           x2: x2 * width,
           y2: y2 * height,
-          stroke: "rgba(255,255,255,0.08)",
+          stroke: "rgba(255,248,236,0.75)",
           "stroke-width": "1",
         }),
       );
     });
 
     const pins = [
-      { x: 0.33, y: 0.28, c: "#ff5a5a", l: "LIVE" },
-      { x: 0.57, y: 0.2, c: "#ff5a5a", l: "LIVE" },
-      { x: 0.2, y: 0.5, c: "#f8a82e", l: "891" },
-      { x: 0.65, y: 0.38, c: "#f8a82e", l: "456" },
-      { x: 0.42, y: 0.6, c: "#f8a82e", l: "312" },
-      { x: 0.78, y: 0.52, c: "#20b981", l: "OK" },
-      { x: 0.18, y: 0.72, c: "#20b981", l: "OK" },
-      { x: 0.6, y: 0.68, c: "#f8a82e", l: "189" },
+      { x: 0.33, y: 0.28, c: "#9b5536", l: "LIVE" },
+      { x: 0.57, y: 0.2, c: "#9b5536", l: "LIVE" },
+      { x: 0.2, y: 0.5, c: "#b88c4a", l: "891" },
+      { x: 0.65, y: 0.38, c: "#b88c4a", l: "456" },
+      { x: 0.42, y: 0.6, c: "#b88c4a", l: "312" },
+      { x: 0.78, y: 0.52, c: "#5f7e5d", l: "OK" },
+      { x: 0.18, y: 0.72, c: "#5f7e5d", l: "OK" },
+      { x: 0.6, y: 0.68, c: "#b88c4a", l: "189" },
     ];
 
     pins.forEach(({ x, y, c, l }) => {
       const px = x * width;
       const py = y * height;
 
-      if (c === "#ff5a5a") {
+      if (c === "#9b5536") {
         svg.appendChild(make("circle", { cx: px, cy: py, r: "18", fill: c, opacity: "0.14" }));
       }
 
@@ -336,21 +336,21 @@ function Landing({ onEnter }) {
         fill: "white",
         "font-size": l === "LIVE" ? "7.5" : "9",
         "font-weight": "700",
-        "font-family": "IBM Plex Sans, sans-serif",
+        "font-family": "Public Sans, sans-serif",
       });
       text.textContent = l;
       group.appendChild(text);
       svg.appendChild(group);
     });
 
-    svg.appendChild(make("circle", { cx: width * 0.47, cy: height * 0.5, r: "7", fill: "#5d92ff" }));
+    svg.appendChild(make("circle", { cx: width * 0.47, cy: height * 0.5, r: "7", fill: "#6f8a91" }));
     svg.appendChild(
       make("circle", {
         cx: width * 0.47,
         cy: height * 0.5,
         r: "14",
         fill: "none",
-        stroke: "#5d92ff",
+        stroke: "#6f8a91",
         "stroke-width": "1.6",
         opacity: "0.35",
       }),
@@ -426,16 +426,16 @@ function Landing({ onEnter }) {
               [
                 "Rent Stabilization Expansion Act",
                 "Committee vote - 11AM City Council Chambers",
-                "#ff5a5a",
+                "#9b5536",
                 "891",
               ],
               [
                 "Mental Health Crisis Response Reform",
                 "Vote this week - 1PM Health Committee",
-                "#ff5a5a",
+                "#9b5536",
                 "456",
               ],
-              ["Bus Rapid Transit Corridor Bill", "Hearing April 15 - DOT Office", "#f8a82e", "189"],
+              ["Bus Rapid Transit Corridor Bill", "Hearing April 15 - DOT Office", "#b88c4a", "189"],
             ].map(([name, meta, color, count]) => (
               <div className="timeline-row" key={name}>
                 <span className="timeline-dot" style={{ background: color }} />
@@ -518,7 +518,7 @@ function MapView({ feed, onTestify, onViewFeed }) {
                 y1={0}
                 x2={i * 28}
                 y2={360}
-                stroke="rgba(93, 146, 255, 0.06)"
+                stroke="rgba(120, 94, 66, 0.08)"
                 strokeWidth="0.5"
               />
             ))}
@@ -529,7 +529,7 @@ function MapView({ feed, onTestify, onViewFeed }) {
                 y1={i * 28}
                 x2={400}
                 y2={i * 28}
-                stroke="rgba(93, 146, 255, 0.06)"
+                stroke="rgba(120, 94, 66, 0.08)"
                 strokeWidth="0.5"
               />
             ))}
@@ -542,8 +542,8 @@ function MapView({ feed, onTestify, onViewFeed }) {
               [60, 270, 340, 278],
             ].map(([x1, y1, x2, y2], i) => (
               <g key={i}>
-                <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="rgba(255,255,255,0.06)" strokeWidth="7" />
-                <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="rgba(255,255,255,0.09)" strokeWidth="1" />
+                <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="rgba(88, 60, 39, 0.18)" strokeWidth="7" />
+                <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="rgba(255,248,236,0.72)" strokeWidth="1" />
               </g>
             ))}
           </svg>
